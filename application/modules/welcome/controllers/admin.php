@@ -10,6 +10,7 @@ class Admin extends Admin_controller {
 	
 	function abc(){
 		echo "Power House Boss";
+		var_dump($_REQUEST);
 	}
 	
 	function test($var_from=""){
