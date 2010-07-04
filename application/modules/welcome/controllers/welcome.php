@@ -10,8 +10,9 @@ class Welcome extends Site_controller {
 	}
 	
 	function abc(){
-		$val=$_GET['param'];
-		return array("aa"=>$val,"bb"=>200);
+		$val=$this->input->get('param',true);
+		$val2=$this->input->post('param',true);
+		return array("aa"=>$val,"bb"=>$val2);
 	}
 }
 
