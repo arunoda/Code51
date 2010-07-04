@@ -24,10 +24,12 @@ class Base_controller extends Controller{
 	}
 	
 	public function flush(){
+		$install_dir=$this->config->config['install_dir'];
 		ob_start();
 		//$template=file(APPPATH."templates/{$this->template}/{$this->context}.php");
-		define('TEMPLATE_PATH',APPPATH."templates/{$this->template}/");
-		include TEMPLATE_PATH."{$this->context}.php";
+		
+		define('TEMPLATE_PATH',$install_dir.APPPATH."templates/{$this->template}/");
+		include APPPATH."templates/{$this->template}/"."{$this->context}.php";
 		//$template=implode("\n",$template);
 		$template=ob_get_contents();
 		ob_end_clean();
