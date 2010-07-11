@@ -8,6 +8,7 @@ class Admin extends Admin_controller {
 		$this->flush();
 	}
 	
+	
 	function abc(){
 		echo "Power House Boss";
 		var_dump($_REQUEST);

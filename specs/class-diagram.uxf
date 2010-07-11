@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// This text will be stored with each diagram;  use it for notes.</help_text><zoom_level>10</zoom_level><element><type>com.umlet.element.base.Class</type><coordinates><x>180</x><y>80</y><w>300</w><h>440</h></coordinates><panel_attributes>User
+// This text will be stored with each diagram;  use it for notes.</help_text><zoom_level>8</zoom_level><element><type>com.umlet.element.base.Class</type><coordinates><x>160</x><y>88</y><w>240</w><h>352</h></coordinates><panel_attributes>User
 //
 .
 --
@@ -54,7 +54,7 @@
 +::by_session(string);
 .
 fg=#505050
-bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Class</type><coordinates><x>550</x><y>100</y><w>320</w><h>400</h></coordinates><panel_attributes>Group
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Class</type><coordinates><x>456</x><y>104</y><w>256</w><h>320</h></coordinates><panel_attributes>Group
 //
 .
 --

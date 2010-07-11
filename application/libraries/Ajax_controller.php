@@ -34,14 +34,19 @@ class Ajax_controller extends Base_controller{
 	*/
 	private function load_ajax_head(){
 		$this->load_js_library('jquery-1.4.2.min');
+		$this->load_js_library("dynamic");
 		$this->load_js_library('code51');	
+		$this->load_js_library("table.ui");
 		
 		$install_dir=$this->config->config['install_dir'];
 		$module=CI::$APP->router->fetch_module();
 		$controller=strtolower(get_class($this));
 		
 		$ws_caller=$install_dir.$module.'/'.$controller.'/';
-		$this->load_inline_js("code51.controller='$ws_caller';");
+		$script="code51.siteRoot='$install_dir';";
+		$script.="code51.module='$module';";
+		$script.="code51.controller='$controller';";
+		$this->load_inline_js($script);
 	}
 	
 	private function include_js($path){

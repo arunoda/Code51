@@ -1,26 +1,49 @@
-var code51={
+function Code51(){
 		/**
-		 * Contains the current controller path
-		 * from the www root
+		 * Where the site is located from the Web root
 		 */
-		controller:"",
-	
+		this.siteRoot="/";
+		
 		/**
-		 * AJAX request to the controller and get the response
+		 * The current using module
 		 */
-		requestGet:function(method,params,callback,controller){
-			if(!controller) controller=this.controller;
+		this.module="";
+		
+		/**
+		 * The current using controller
+		 */
+		this.controller="";
+		
+		/**
+		 * AJAX request to the controller and get the response 
+		 * @param method method in the controller
+		 * @param params request parameters
+		 * @param callback function to be callback with the response
+		 * @param config sets module and controller for advanced calling of webservices
+		 * but the default one would be the current controller;
+		 */
+		this.requestGet=function(method,params,callback,config){
 			var qryString=""
 			for(index in params){
 				qryString='&' + index + '=' + params[index];
 			}
-			var url=controller + 'service/' + method + '/' + qryString;
+			var webService=this.getWebServiceURL(config);
+			var url=webService + method + '/' + qryString;
 			$.get(url,callback);
-		},
+		};
 		
-		requestPost:function(method,params,callback,controller){
-			if(!controller) controller=this.controller;
-			var url=controller + 'service/' + method + '/' ;
+		this.requestPost=function(method,params,callback,config){
+			var webService=this.getWebServiceURL(config);
+			var url=webService + method + '/' ;
 			$.post(url,params,callback);
-		},
-};
+		};
+		
+		this.getWebServiceURL=function(config){
+			var module=(config && config.module)?config.module:this.module;
+			var controller=(config && config.controller)?config.controller:this.controller;
+			return this.siteRoot + module+"/" + controller + "/service/";;
+		};
+		
+}
+
+var code51=new Code51();
