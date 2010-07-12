@@ -44,12 +44,21 @@ function Table(div){
 		
 		table.append(html);
 		this.reloadCSS();
+		this.registerEvent();
 	}
+	
+	this.deleteAll=function(){
+		var head=$('#'+div+' .code51Table .tableHead');
+		$('#'+div+' .code51Table tr').detach();
+		$('#'+div+' .code51Table').append(head);
+		this.count=0;
+	};
 	
 	this.deleteRows=function(rows){
 		for(index in rows){
 			$('#'+div+' .code51Table #'+rows[index]).detach();
 		}
+		this.count-=rows.length;
 	}
 	
 	this.getRow=function(index){
@@ -65,8 +74,12 @@ function Table(div){
 	}
 	
 	this.onRowClick=function(callBack){
-		this.callbacks.rowClick=callBack;
-		var callback=$.globalFunction(callBack);
+		this.callbacks.rowClick=callBack;		
+	};
+	
+	this.registerEvent=function(){
+		
+		var callback=$.globalFunction(this.callbacks.rowClick);
 		
 		var script=
 			"if(!this.id) return;"+
@@ -80,9 +93,9 @@ function Table(div){
 			
 			""+callback+"(resp);";
 		
+		$("#"+div+" .code51Table tr").unbind('click');
 		$("#"+div+" .code51Table tr").click($.dynamicFunction(script,true));
-		
-	};
+	}
 	
 	this.reloadCSS=function(){
 		$("#"+div+" .code51Table tr").

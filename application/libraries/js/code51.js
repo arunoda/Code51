@@ -25,11 +25,17 @@ function Code51(){
 		this.requestGet=function(method,params,callback,config){
 			var qryString=""
 			for(index in params){
-				qryString='&' + index + '=' + params[index];
+				qryString+='&' + index + '=' + params[index];
 			}
 			var webService=this.getWebServiceURL(config);
 			var url=webService + method + '/' + qryString;
-			$.get(url,callback);
+			var strFunc=$.globalFunction(callback);
+			var modifiedCallback=$.dynamicFunction(
+					"var resp;"+
+					"eval('resp='+response);"+
+					strFunc+"(resp);"
+					,true);
+			$.get(url,modifiedCallback);
 		};
 		
 		this.requestPost=function(method,params,callback,config){
@@ -41,7 +47,7 @@ function Code51(){
 		this.getWebServiceURL=function(config){
 			var module=(config && config.module)?config.module:this.module;
 			var controller=(config && config.controller)?config.controller:this.controller;
-			return this.siteRoot + module+"/" + controller + "/service/";;
+			return this.siteRoot + module+"/" + controller + "/service/";
 		};
 		
 }

@@ -14,7 +14,7 @@ $.extend($,
 	dynamicFunction:function(script,jsFunction){
 		//make callback Global
 		var callbackName="callback_" + Math.floor(Math.random()*10000);
-		var func="function "+ callbackName +"(){"+script+"} ";
+		var func="function "+ callbackName +"(response){"+script+"} ";
 		jQuery.globalEval(func);
 		
 		if(jsFunction){

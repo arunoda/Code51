@@ -14,13 +14,15 @@ class Ajax_controller extends Base_controller{
 		$js_file=APPPATH.'modules/'.$module.'/views/'.$view_name.'.js';
 		
 		if(is_file(FCPATH.$js_file)){
-			$html=$this->include_js($js_file);
+			$install_dir=$this->config->config['install_dir'];
+			$html=$this->include_js($install_dir.$js_file);
 			$this->add_to_view($html, "head");
 		}
 	}
 	
 	public function load_js_library($library){
-		$html=$this->include_js(APPPATH.'libraries/js/'.$library.'.js');
+		$install_dir=$this->config->config['install_dir'];
+		$html=$this->include_js($install_dir.APPPATH.'libraries/js/'.$library.'.js');
 		$this->add_to_view($html, "head");
 	}
 	
@@ -37,6 +39,7 @@ class Ajax_controller extends Base_controller{
 		$this->load_js_library("dynamic");
 		$this->load_js_library('code51');	
 		$this->load_js_library("table.ui");
+		$this->load_js_library("jquery.form");
 		
 		$install_dir=$this->config->config['install_dir'];
 		$module=CI::$APP->router->fetch_module();

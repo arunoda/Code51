@@ -4,7 +4,7 @@ body{
 	text-align:center;
 }
 
-body,table{
+body,table,form,p,div,button{
 	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
 	font-size:14px;
 }
@@ -41,7 +41,7 @@ hr{
 
 #content{
 	color:rgb(100,100,100);
-	width:620px;
+	width:820px;
 	margin:auto;
 	font-family:verdana;
 	font-size:15px;
@@ -78,6 +78,10 @@ a:hover{
 	text-align: center;
 }
 
+/*************************************
+Table
+*************************************/
+
 table{
 	border-spacing:0px;	
 }
@@ -94,6 +98,41 @@ table{
 .code51Table td{
 	padding:5px;	
 	border-right:1px solid #6b8e23;
+}
+
+/**************************************
+Form
+**************************************/
+
+.code51Form{
+	border:1px solid #6b8e23;
+}
+
+.code51Form input,.code51Form textarea,.code51Form select{
+	border:1px solid rgb(200,200,200);
+	padding:2px 2px 2px 0px;	
+}
+
+.code51Form h3{
+	margin-top:0px;
+	background-color:#9acd32;
+	color:rgb(255,255,255);
+	padding:8px;
+}
+
+.code51Form form{
+	margin-left:10px;
+}
+
+.code51Form .input{
+	margin-bottom:10px;
+	padding:3px 3px 3px 0px;
+	
+}
+
+.code51Form .input div{
+	font-weight:bold;
+	padding:5px;
 }
 
 
