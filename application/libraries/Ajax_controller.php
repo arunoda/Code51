@@ -40,6 +40,7 @@ class Ajax_controller extends Base_controller{
 		$this->load_js_library('code51');	
 		$this->load_js_library("table.ui");
 		$this->load_js_library("jquery.form");
+		$this->load_js_library("dateFormat");
 		
 		$install_dir=$this->config->config['install_dir'];
 		$module=CI::$APP->router->fetch_module();

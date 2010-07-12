@@ -40,7 +40,7 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "jobcard";
 $route['scaffolding_trigger'] = "";
 
 //allows to view admin section

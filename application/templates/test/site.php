@@ -2,21 +2,23 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Welcome to the Code51</title> 
+		<title>HNB JobCard Processing System powered by Code51</title> 
 		<code51:head/>
 		<link rel='stylesheet' href='<?php echo TEMPLATE_PATH."assests/site.css";?>'/>
 	</head> 
 	<body> 
-		<h1><span id='code51'>Code51</span> - CMS based on CodeIgnitor Framework</h1> 
+		<h1  onclick='location.href="/"'><span id='code51'>HNB</span> - JobCard Processing System </h1> 
 		<div id='line1'></div> 
 		<div id='line2'></div> 
 		<div id='content'> 
+			<a href='/jobcard/login'>Login | Logout</a><p/>
 			<code51:module/>
 		</div> 
+		<p></p>
+		<p></p>
 		<div id='line3'></div>
 		<div id='footer'>
-			for more details logon to <a href='http://code51.co.cc'>http://code51.co.cc</a> | 
-			<a href='index.php?admin'>administration</a>
+			
 		</div> 
 	</body> 
 </html>
